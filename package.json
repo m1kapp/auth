@@ -1,0 +1,36 @@
+{
+  "name": "@m1kapp/auth",
+  "version": "0.1.0",
+  "description": "Sign-in for the m1k apps on clerk.m1k.app: 카카오/Google/GitHub buttons, last-used badge, account linking",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build",
+    "lint": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "react": "^19.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m1kapp/auth.git"
+  },
+  "homepage": "https://m1k.app"
+}
