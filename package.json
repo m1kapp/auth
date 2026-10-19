@@ -1,6 +1,6 @@
 {
   "name": "@m1kapp/auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Sign-in for the m1k apps on clerk.m1k.app: 카카오/Google/GitHub buttons, last-used badge, account linking",
   "type": "module",
   "main": "./dist/index.js",

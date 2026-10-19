@@ -102,7 +102,8 @@ var recentStyle = {
   top: "50%",
   transform: "translateY(-50%)",
   borderRadius: 999,
-  background: "rgba(0,0,0,.1)",
+  background: "rgba(127,127,127,.3)",
+  // readable on light and dark buttons
   padding: "2px 8px",
   fontSize: 10,
   fontWeight: 700,
