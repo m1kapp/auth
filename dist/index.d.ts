@@ -1,5 +1,29 @@
 import * as react from 'react';
-import { ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
+
+type SignInScreenProps = {
+    /** The app's brand color, behind the icon and wordmark. */
+    color: string;
+    /** The app's icon, e.g. `/icon-512.webp`. */
+    icon: string;
+    /** The wordmark, e.g. `monthgram`. */
+    name: ReactNode;
+    /** Under the wordmark, e.g. `같은 달, 나란히`. */
+    slogan?: ReactNode;
+    /** The card's headline, e.g. `월마다, 나란히.` */
+    title?: ReactNode;
+    /** Under the headline, e.g. `한 달에 한 장씩 기록해 두세요.` */
+    text?: ReactNode;
+    /** In order, 카카오 first by default. */
+    ways?: Way[];
+    signIn: ReturnType<typeof useSocialSignIn>;
+    /** Under the buttons, e.g. a demo link. */
+    children?: ReactNode;
+    /** The wordmark's font, e.g. `Georgia, serif`. */
+    nameStyle?: CSSProperties;
+    className?: string;
+};
+declare function SignInScreen({ color, icon, name, slogan, title, text, ways, signIn, children, nameStyle, className, }: SignInScreenProps): react.JSX.Element;
 
 type Way = 'kakao' | 'google' | 'github';
 /** Each way on clerk.m1k.app: 카카오 is its custom OIDC connection (key `kakao`). */
@@ -45,10 +69,11 @@ declare function useSocialSignIn(clerk: SignInClerk, { redirectUrl, redirectUrlC
  * One way's button: icon, "카카오로 시작하기", "최근 사용" on the last one. The look is the app's (`className`);
  * it only needs `position: relative` for the badge, which it sets.
  */
-declare function SignInButton({ way, signIn, className, label, recentClassName, }: {
+declare function SignInButton({ way, signIn, className, label, recentClassName, style, }: {
     way: Way;
     signIn: ReturnType<typeof useSocialSignIn>;
     className?: string;
+    style?: CSSProperties;
     label?: ReactNode;
     /** Replaces the badge's default look. */
     recentClassName?: string;
@@ -91,4 +116,4 @@ declare function useLinkWays(user: LinkUser | null | undefined, list?: Way[]): {
     way: Way;
 }[];
 
-export { type LinkUser, SignInButton, type SignInClerk, type Way, useLinkWays, useSocialSignIn, ways };
+export { type LinkUser, SignInButton, type SignInClerk, SignInScreen, type SignInScreenProps, type Way, useLinkWays, useSocialSignIn, ways };

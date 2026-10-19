@@ -153,10 +153,12 @@ export function SignInButton({
   className,
   label = `${ways[way].name}로 시작하기`,
   recentClassName,
+  style,
 }: {
   way: Way;
   signIn: ReturnType<typeof useSocialSignIn>;
   className?: string;
+  style?: CSSProperties;
   label?: ReactNode;
   /** Replaces the badge's default look. */
   recentClassName?: string;
@@ -165,7 +167,7 @@ export function SignInButton({
     <button
       type="button"
       className={className}
-      style={{ position: 'relative' }}
+      style={{ ...style, position: 'relative', opacity: signIn.going ? 0.6 : undefined }}
       disabled={!!signIn.going}
       onClick={() => void signIn.start(way)}
     >
@@ -222,3 +224,5 @@ export function useLinkWays(user: LinkUser | null | undefined, list: Way[] = ['k
     };
   });
 }
+
+export { SignInScreen, type SignInScreenProps } from './screen';
